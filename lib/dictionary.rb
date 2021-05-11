@@ -10,13 +10,15 @@ class Dictionary
     extract_words(path)
   end
 
+  private
+
   def extract_words(path)
     file = File.open(path, 'r')
     file.each_line do |line|
       next if line.empty?
 
       columns = line.split(',')
-      words << Word.new(columns[3], columns[5])
+      words << Word.new(columns[2].strip, columns[4].strip)
     end
     file.close
   end
