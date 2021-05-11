@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class Word
-  attr_reader :kanji, :pronunciation
+  attr_reader :kanji, :reading
 
-  def initialize(kanji, pronunciation)
+  def initialize(kanji, reading)
     @kanji = kanji
-    @pronunciation = pronunciation
+    @reading = reading
   end
 end
