@@ -1,31 +1,18 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require_relative 'lib/dictionary'
+require_relative 'lib/game'
+require_relative 'lib/path_controller'
+
 APP_ROOT = File.dirname(__FILE__)
 
-@path_settings = 'path_settings.txt'
+path_settings = 'path_settings.txt'
 
-@path_argument = ARGV[0]
+path_cli_argument = ARGV[0]
 
-def no_path
-  File.size(@path_settings).zero? && @path_argument.nil?
+path = PathController.new(path_settings, path_cli_argument).path
+
+loop do
+  Game.new(Dictionary.new(path)).play
 end
-
-raise(ArgumentError, 'Path argument required', caller) if no_path
-
-def get_path(settings, cli_argument)
-  path = ''
-
-  if !cli_argument.nil?
-    File.write(settings, cli_argument)
-    path = cli_argument.strip
-  else
-    file = File.open(settings, 'r')
-    path = File.read(file).strip
-    file.close
-  end
-  path
-end
-
-get_path(@path_settings, @path_argument)
-
