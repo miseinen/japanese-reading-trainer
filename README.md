@@ -15,7 +15,7 @@ As a Japanese learner I need to learn kanji reading. But this application can be
 
 - Open a **terminal** and navigate to the folder containing the cloned repo.
 
-- **trainer.rb** file is a script. You need to get execute permission to run.<br/>On Linux, you can type `chmod + x ./trainer.rb`.
+- **trainer.rb** file is a script. You need to get execute permission to run.<br/>On Linux, you can type `chmod +x ./trainer.rb`.
 
 - To run the application for the first time, you need to specify the **path settings**.<br/>Enter `./trainer.rb {PATH_TO_CSV_FILE}` on the terminal. You can change the path settings in the same way.
 
